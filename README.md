@@ -2,10 +2,10 @@
 
 A GitHub Pages-ready static project that recreates the spirit of
 Staggering Beauty as a stripped-down black garden eel. It is anchored at the
-bottom center, extends toward the center of the page, and keeps its body in a
-straight stack of equal-width segments. There is no visible page text, no
-normal background treatment, no canvas, and no drawing library; JavaScript only
-tracks the pointer and writes CSS custom properties.
+bottom center, where the bottom segment points directly at the mouse. The
+equal-width segments above it follow that aiming motion with damping, so moving
+the mouse back and forth sends a wiggle up the body. There is no visible page
+text, no normal background treatment, no canvas, and no drawing library.
 
 ## Run locally
 
