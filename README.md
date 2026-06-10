@@ -1,9 +1,11 @@
 # CSS Staggering Beauty
 
 A GitHub Pages-ready static project that recreates the spirit of
-Staggering Beauty with regular HTML elements and CSS animation. There is no
-canvas and no drawing library; JavaScript only tracks the pointer and writes
-CSS custom properties.
+Staggering Beauty as a stripped-down black garden eel. It is anchored at the
+bottom center, extends toward the center of the page, and keeps its body in a
+straight stack of equal-width segments. There is no visible page text, no
+normal background treatment, no canvas, and no drawing library; JavaScript only
+tracks the pointer and writes CSS custom properties.
 
 ## Run locally
 
