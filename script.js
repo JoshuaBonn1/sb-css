@@ -1,10 +1,10 @@
 const root = document.documentElement;
 const body = document.body;
+const topSegmentIndex = 19;
 
 let lastX = window.innerWidth / 2;
 let lastY = window.innerHeight / 2;
 let lastTime = performance.now();
-let lastAngle = 0;
 let rafId = 0;
 let pendingPointer = { x: lastX, y: lastY };
 
@@ -22,19 +22,23 @@ function paintPointer() {
   const dy = y - lastY;
   const distance = Math.hypot(dx, dy);
   const speed = clamp((distance / elapsed) * 100, 0, 520);
+  const maxBend = Math.min(window.innerWidth * 0.32, 360);
+  const verticalAttention = clamp((window.innerHeight - y) / (window.innerHeight * 0.55), 0.35, 1);
+  const headOffset = clamp((x - window.innerWidth / 2) * 0.55 * verticalAttention, -maxBend, maxBend);
+  const visualHeight = window.innerHeight * 0.42;
+  const angle = Math.atan2(headOffset, visualHeight) * (180 / Math.PI);
 
-  if (distance > 0.1) {
-    lastAngle = Math.atan2(dy, dx) * (180 / Math.PI) + 90;
+  for (let index = 0; index <= topSegmentIndex; index += 1) {
+    const progress = index / topSegmentIndex;
+    root.style.setProperty(`--x-${index}`, `${(headOffset * progress).toFixed(2)}px`);
   }
 
-  root.style.setProperty("--mouse-x", `${x}px`);
-  root.style.setProperty("--mouse-y", `${y}px`);
   root.style.setProperty("--speed", speed.toFixed(2));
-  root.style.setProperty("--tilt", `${lastAngle.toFixed(2)}deg`);
+  root.style.setProperty("--eel-angle", `${angle.toFixed(2)}deg`);
   root.style.setProperty("--shake", `${(speed / 55).toFixed(2)}px`);
-  root.style.setProperty("--scale", (1 + speed / 1600).toFixed(3));
-  root.style.setProperty("--eye-x", `${clamp(dx / 22, -7, 7).toFixed(2)}px`);
-  root.style.setProperty("--eye-y", `${clamp(dy / 22, -6, 6).toFixed(2)}px`);
+  root.style.setProperty("--shake-left", `${(-speed / 70).toFixed(2)}px`);
+  root.style.setProperty("--shake-up", `${(-speed / 95).toFixed(2)}px`);
+  root.style.setProperty("--shake-soft", `${(speed / 125).toFixed(2)}px`);
 
   body.classList.toggle("is-frantic", speed > 190);
 
@@ -57,6 +61,10 @@ window.addEventListener("pointermove", (event) => {
 
 window.addEventListener("pointerleave", () => {
   body.classList.remove("is-frantic");
+});
+
+window.addEventListener("resize", () => {
+  queuePointerUpdate(lastX, lastY);
 });
 
 queuePointerUpdate(lastX, lastY);
