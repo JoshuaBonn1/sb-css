@@ -1,32 +1,72 @@
 :root {
-  --eel-width: clamp(2.1rem, 6vmin, 4.25rem);
-  --segment-height: clamp(1.85rem, 5.3vmin, 3.75rem);
-  --head-height: clamp(2.25rem, 6.5vmin, 4.6rem);
-  --eel-angle: 0deg;
+  --eel-width: 56px;
+  --segment-height: 46px;
+  --head-height: 54px;
+  --half-eel-width: -28px;
   --shake: 0px;
   --shake-left: 0px;
   --shake-up: 0px;
   --shake-soft: 0px;
   --x-0: 0px;
+  --y-0: 0px;
+  --a-0: 0deg;
   --x-1: 0px;
+  --y-1: -28px;
+  --a-1: 0deg;
   --x-2: 0px;
+  --y-2: -56px;
+  --a-2: 0deg;
   --x-3: 0px;
+  --y-3: -84px;
+  --a-3: 0deg;
   --x-4: 0px;
+  --y-4: -112px;
+  --a-4: 0deg;
   --x-5: 0px;
+  --y-5: -140px;
+  --a-5: 0deg;
   --x-6: 0px;
+  --y-6: -168px;
+  --a-6: 0deg;
   --x-7: 0px;
+  --y-7: -196px;
+  --a-7: 0deg;
   --x-8: 0px;
+  --y-8: -224px;
+  --a-8: 0deg;
   --x-9: 0px;
+  --y-9: -252px;
+  --a-9: 0deg;
   --x-10: 0px;
+  --y-10: -280px;
+  --a-10: 0deg;
   --x-11: 0px;
+  --y-11: -308px;
+  --a-11: 0deg;
   --x-12: 0px;
+  --y-12: -336px;
+  --a-12: 0deg;
   --x-13: 0px;
+  --y-13: -364px;
+  --a-13: 0deg;
   --x-14: 0px;
+  --y-14: -392px;
+  --a-14: 0deg;
   --x-15: 0px;
+  --y-15: -420px;
+  --a-15: 0deg;
   --x-16: 0px;
+  --y-16: -448px;
+  --a-16: 0deg;
   --x-17: 0px;
+  --y-17: -476px;
+  --a-17: 0deg;
   --x-18: 0px;
+  --y-18: -504px;
+  --a-18: 0deg;
   --x-19: 0px;
+  --y-19: -532px;
+  --a-19: 0deg;
 }
 
 * {
@@ -65,141 +105,161 @@ body.is-frantic {
   width: 0;
   height: 0;
   pointer-events: none;
-  transform: translateX(-50%);
 }
 
 .segment {
   position: absolute;
-  bottom: var(--bottom);
+  bottom: 0;
   left: 0;
   width: var(--eel-width);
   height: var(--segment-height);
+  margin-left: var(--half-eel-width);
   background: #000;
   border-radius: 999px;
   transform:
-    translateX(calc(var(--x) - 50%))
-    rotate(var(--eel-angle));
-  transition: transform 95ms cubic-bezier(0.2, 0.9, 0.2, 1);
-  transform-origin: 50% 50%;
+    translate(var(--x), var(--y))
+    rotate(var(--a));
+  transform-origin: 50% 100%;
+  will-change: transform;
 }
 
 .tail {
   --x: var(--x-0);
-  --bottom: -3.4vh;
+  --y: var(--y-0);
+  --a: var(--a-0);
   z-index: 1;
 }
 
 .s1 {
   --x: var(--x-1);
-  --bottom: -1.2vh;
+  --y: var(--y-1);
+  --a: var(--a-1);
   z-index: 2;
 }
 
 .s2 {
   --x: var(--x-2);
-  --bottom: 1vh;
+  --y: var(--y-2);
+  --a: var(--a-2);
   z-index: 3;
 }
 
 .s3 {
   --x: var(--x-3);
-  --bottom: 3.2vh;
+  --y: var(--y-3);
+  --a: var(--a-3);
   z-index: 4;
 }
 
 .s4 {
   --x: var(--x-4);
-  --bottom: 5.4vh;
+  --y: var(--y-4);
+  --a: var(--a-4);
   z-index: 5;
 }
 
 .s5 {
   --x: var(--x-5);
-  --bottom: 7.6vh;
+  --y: var(--y-5);
+  --a: var(--a-5);
   z-index: 6;
 }
 
 .s6 {
   --x: var(--x-6);
-  --bottom: 9.8vh;
+  --y: var(--y-6);
+  --a: var(--a-6);
   z-index: 7;
 }
 
 .s7 {
   --x: var(--x-7);
-  --bottom: 12vh;
+  --y: var(--y-7);
+  --a: var(--a-7);
   z-index: 8;
 }
 
 .s8 {
   --x: var(--x-8);
-  --bottom: 14.2vh;
+  --y: var(--y-8);
+  --a: var(--a-8);
   z-index: 9;
 }
 
 .s9 {
   --x: var(--x-9);
-  --bottom: 16.4vh;
+  --y: var(--y-9);
+  --a: var(--a-9);
   z-index: 10;
 }
 
 .s10 {
   --x: var(--x-10);
-  --bottom: 18.6vh;
+  --y: var(--y-10);
+  --a: var(--a-10);
   z-index: 11;
 }
 
 .s11 {
   --x: var(--x-11);
-  --bottom: 20.8vh;
+  --y: var(--y-11);
+  --a: var(--a-11);
   z-index: 12;
 }
 
 .s12 {
   --x: var(--x-12);
-  --bottom: 23vh;
+  --y: var(--y-12);
+  --a: var(--a-12);
   z-index: 13;
 }
 
 .s13 {
   --x: var(--x-13);
-  --bottom: 25.2vh;
+  --y: var(--y-13);
+  --a: var(--a-13);
   z-index: 14;
 }
 
 .s14 {
   --x: var(--x-14);
-  --bottom: 27.4vh;
+  --y: var(--y-14);
+  --a: var(--a-14);
   z-index: 15;
 }
 
 .s15 {
   --x: var(--x-15);
-  --bottom: 29.6vh;
+  --y: var(--y-15);
+  --a: var(--a-15);
   z-index: 16;
 }
 
 .s16 {
   --x: var(--x-16);
-  --bottom: 31.8vh;
+  --y: var(--y-16);
+  --a: var(--a-16);
   z-index: 17;
 }
 
 .s17 {
   --x: var(--x-17);
-  --bottom: 34vh;
+  --y: var(--y-17);
+  --a: var(--a-17);
   z-index: 18;
 }
 
 .s18 {
   --x: var(--x-18);
-  --bottom: 36.2vh;
+  --y: var(--y-18);
+  --a: var(--a-18);
   z-index: 19;
 }
 
 .head {
   --x: var(--x-19);
-  --bottom: 38.4vh;
+  --y: var(--y-19);
+  --a: var(--a-19);
   z-index: 20;
   height: var(--head-height);
   border-radius: 50% 50% 46% 46% / 62% 62% 38% 38%;
@@ -209,8 +269,8 @@ body.is-frantic {
 .head::after {
   position: absolute;
   top: 28%;
-  width: clamp(0.2rem, 0.7vmin, 0.46rem);
-  height: clamp(0.2rem, 0.7vmin, 0.46rem);
+  width: 6px;
+  height: 6px;
   background: #fff;
   border-radius: 50%;
   content: "";
@@ -317,11 +377,25 @@ body.is-frantic .head::after {
   }
 }
 
+@media (max-height: 680px), (max-width: 520px) {
+  :root {
+    --eel-width: 42px;
+    --segment-height: 34px;
+    --head-height: 41px;
+    --half-eel-width: -21px;
+  }
+
+  .head::before,
+  .head::after {
+    width: 5px;
+    height: 5px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
   *::after {
-    transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
   }
