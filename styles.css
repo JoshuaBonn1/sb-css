@@ -3,70 +3,12 @@
   --segment-height: 46px;
   --head-height: 54px;
   --half-eel-width: -28px;
+  --aim-angle: 0deg;
+  --bend: 0px;
   --shake: 0px;
   --shake-left: 0px;
   --shake-up: 0px;
   --shake-soft: 0px;
-  --x-0: 0px;
-  --y-0: 0px;
-  --a-0: 0deg;
-  --x-1: 0px;
-  --y-1: -28px;
-  --a-1: 0deg;
-  --x-2: 0px;
-  --y-2: -56px;
-  --a-2: 0deg;
-  --x-3: 0px;
-  --y-3: -84px;
-  --a-3: 0deg;
-  --x-4: 0px;
-  --y-4: -112px;
-  --a-4: 0deg;
-  --x-5: 0px;
-  --y-5: -140px;
-  --a-5: 0deg;
-  --x-6: 0px;
-  --y-6: -168px;
-  --a-6: 0deg;
-  --x-7: 0px;
-  --y-7: -196px;
-  --a-7: 0deg;
-  --x-8: 0px;
-  --y-8: -224px;
-  --a-8: 0deg;
-  --x-9: 0px;
-  --y-9: -252px;
-  --a-9: 0deg;
-  --x-10: 0px;
-  --y-10: -280px;
-  --a-10: 0deg;
-  --x-11: 0px;
-  --y-11: -308px;
-  --a-11: 0deg;
-  --x-12: 0px;
-  --y-12: -336px;
-  --a-12: 0deg;
-  --x-13: 0px;
-  --y-13: -364px;
-  --a-13: 0deg;
-  --x-14: 0px;
-  --y-14: -392px;
-  --a-14: 0deg;
-  --x-15: 0px;
-  --y-15: -420px;
-  --a-15: 0deg;
-  --x-16: 0px;
-  --y-16: -448px;
-  --a-16: 0deg;
-  --x-17: 0px;
-  --y-17: -476px;
-  --a-17: 0deg;
-  --x-18: 0px;
-  --y-18: -504px;
-  --a-18: 0deg;
-  --x-19: 0px;
-  --y-19: -532px;
-  --a-19: 0deg;
 }
 
 * {
@@ -108,6 +50,10 @@ body.is-frantic {
 }
 
 .segment {
+  --offset-y: 0px;
+  --offset-x: 0px;
+  --rotation: var(--aim-angle);
+  --lag: 0ms;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -117,149 +63,166 @@ body.is-frantic {
   background: #000;
   border-radius: 999px;
   transform:
-    translate(var(--x), var(--y))
-    rotate(var(--a));
+    translate(var(--offset-x), var(--offset-y))
+    rotate(var(--rotation));
   transform-origin: 50% 100%;
+  transition: transform var(--lag) cubic-bezier(0.14, 0.88, 0.28, 1.18);
   will-change: transform;
 }
 
 .tail {
-  --x: var(--x-0);
-  --y: var(--y-0);
-  --a: var(--a-0);
   z-index: 1;
 }
 
 .s1 {
-  --x: var(--x-1);
-  --y: var(--y-1);
-  --a: var(--a-1);
+  --offset-y: -28px;
+  --offset-x: calc(var(--bend) * 0.06);
+  --rotation: calc(var(--aim-angle) * 0.98);
+  --lag: 55ms;
   z-index: 2;
 }
 
 .s2 {
-  --x: var(--x-2);
-  --y: var(--y-2);
-  --a: var(--a-2);
+  --offset-y: -56px;
+  --offset-x: calc(var(--bend) * 0.11);
+  --rotation: calc(var(--aim-angle) * 0.94);
+  --lag: 80ms;
   z-index: 3;
 }
 
 .s3 {
-  --x: var(--x-3);
-  --y: var(--y-3);
-  --a: var(--a-3);
+  --offset-y: -84px;
+  --offset-x: calc(var(--bend) * 0.17);
+  --rotation: calc(var(--aim-angle) * 0.9);
+  --lag: 105ms;
   z-index: 4;
 }
 
 .s4 {
-  --x: var(--x-4);
-  --y: var(--y-4);
-  --a: var(--a-4);
+  --offset-y: -112px;
+  --offset-x: calc(var(--bend) * 0.23);
+  --rotation: calc(var(--aim-angle) * 0.85);
+  --lag: 130ms;
   z-index: 5;
 }
 
 .s5 {
-  --x: var(--x-5);
-  --y: var(--y-5);
-  --a: var(--a-5);
+  --offset-y: -140px;
+  --offset-x: calc(var(--bend) * 0.29);
+  --rotation: calc(var(--aim-angle) * 0.8);
+  --lag: 155ms;
   z-index: 6;
 }
 
 .s6 {
-  --x: var(--x-6);
-  --y: var(--y-6);
-  --a: var(--a-6);
+  --offset-y: -168px;
+  --offset-x: calc(var(--bend) * 0.35);
+  --rotation: calc(var(--aim-angle) * 0.75);
+  --lag: 180ms;
   z-index: 7;
 }
 
 .s7 {
-  --x: var(--x-7);
-  --y: var(--y-7);
-  --a: var(--a-7);
+  --offset-y: -196px;
+  --offset-x: calc(var(--bend) * 0.41);
+  --rotation: calc(var(--aim-angle) * 0.7);
+  --lag: 205ms;
   z-index: 8;
 }
 
 .s8 {
-  --x: var(--x-8);
-  --y: var(--y-8);
-  --a: var(--a-8);
+  --offset-y: -224px;
+  --offset-x: calc(var(--bend) * 0.47);
+  --rotation: calc(var(--aim-angle) * 0.65);
+  --lag: 230ms;
   z-index: 9;
 }
 
 .s9 {
-  --x: var(--x-9);
-  --y: var(--y-9);
-  --a: var(--a-9);
+  --offset-y: -252px;
+  --offset-x: calc(var(--bend) * 0.53);
+  --rotation: calc(var(--aim-angle) * 0.61);
+  --lag: 255ms;
   z-index: 10;
 }
 
 .s10 {
-  --x: var(--x-10);
-  --y: var(--y-10);
-  --a: var(--a-10);
+  --offset-y: -280px;
+  --offset-x: calc(var(--bend) * 0.59);
+  --rotation: calc(var(--aim-angle) * 0.57);
+  --lag: 280ms;
   z-index: 11;
 }
 
 .s11 {
-  --x: var(--x-11);
-  --y: var(--y-11);
-  --a: var(--a-11);
+  --offset-y: -308px;
+  --offset-x: calc(var(--bend) * 0.65);
+  --rotation: calc(var(--aim-angle) * 0.53);
+  --lag: 305ms;
   z-index: 12;
 }
 
 .s12 {
-  --x: var(--x-12);
-  --y: var(--y-12);
-  --a: var(--a-12);
+  --offset-y: -336px;
+  --offset-x: calc(var(--bend) * 0.7);
+  --rotation: calc(var(--aim-angle) * 0.5);
+  --lag: 330ms;
   z-index: 13;
 }
 
 .s13 {
-  --x: var(--x-13);
-  --y: var(--y-13);
-  --a: var(--a-13);
+  --offset-y: -364px;
+  --offset-x: calc(var(--bend) * 0.75);
+  --rotation: calc(var(--aim-angle) * 0.47);
+  --lag: 355ms;
   z-index: 14;
 }
 
 .s14 {
-  --x: var(--x-14);
-  --y: var(--y-14);
-  --a: var(--a-14);
+  --offset-y: -392px;
+  --offset-x: calc(var(--bend) * 0.8);
+  --rotation: calc(var(--aim-angle) * 0.44);
+  --lag: 380ms;
   z-index: 15;
 }
 
 .s15 {
-  --x: var(--x-15);
-  --y: var(--y-15);
-  --a: var(--a-15);
+  --offset-y: -420px;
+  --offset-x: calc(var(--bend) * 0.84);
+  --rotation: calc(var(--aim-angle) * 0.41);
+  --lag: 405ms;
   z-index: 16;
 }
 
 .s16 {
-  --x: var(--x-16);
-  --y: var(--y-16);
-  --a: var(--a-16);
+  --offset-y: -448px;
+  --offset-x: calc(var(--bend) * 0.88);
+  --rotation: calc(var(--aim-angle) * 0.38);
+  --lag: 430ms;
   z-index: 17;
 }
 
 .s17 {
-  --x: var(--x-17);
-  --y: var(--y-17);
-  --a: var(--a-17);
+  --offset-y: -476px;
+  --offset-x: calc(var(--bend) * 0.91);
+  --rotation: calc(var(--aim-angle) * 0.35);
+  --lag: 455ms;
   z-index: 18;
 }
 
 .s18 {
-  --x: var(--x-18);
-  --y: var(--y-18);
-  --a: var(--a-18);
+  --offset-y: -504px;
+  --offset-x: calc(var(--bend) * 0.94);
+  --rotation: calc(var(--aim-angle) * 0.33);
+  --lag: 480ms;
   z-index: 19;
 }
 
 .head {
-  --x: var(--x-19);
-  --y: var(--y-19);
-  --a: var(--a-19);
+  --offset-y: -532px;
+  --offset-x: var(--bend);
+  --rotation: calc(var(--aim-angle) * 0.31);
+  --lag: 505ms;
   z-index: 20;
   height: var(--head-height);
   border-radius: 50% 50% 46% 46% / 62% 62% 38% 38%;
@@ -385,6 +348,26 @@ body.is-frantic .head::after {
     --half-eel-width: -21px;
   }
 
+  .s1 { --offset-y: -22px; }
+  .s2 { --offset-y: -44px; }
+  .s3 { --offset-y: -66px; }
+  .s4 { --offset-y: -88px; }
+  .s5 { --offset-y: -110px; }
+  .s6 { --offset-y: -132px; }
+  .s7 { --offset-y: -154px; }
+  .s8 { --offset-y: -176px; }
+  .s9 { --offset-y: -198px; }
+  .s10 { --offset-y: -220px; }
+  .s11 { --offset-y: -242px; }
+  .s12 { --offset-y: -264px; }
+  .s13 { --offset-y: -286px; }
+  .s14 { --offset-y: -308px; }
+  .s15 { --offset-y: -330px; }
+  .s16 { --offset-y: -352px; }
+  .s17 { --offset-y: -374px; }
+  .s18 { --offset-y: -396px; }
+  .head { --offset-y: -418px; }
+
   .head::before,
   .head::after {
     width: 5px;
@@ -396,6 +379,7 @@ body.is-frantic .head::after {
   *,
   *::before,
   *::after {
+    transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
   }
